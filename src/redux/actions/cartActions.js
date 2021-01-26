@@ -7,16 +7,16 @@ export const toggleCart = () => {
     };
 };
 
-export const addToCart = () => {
+export const addToCart = (id) => {
     return {
         type: actionTypes.ADD_TO_CART,
-
+        id: id,
     };
 };
 
-export const deleteFromCart = () => {
+export const deleteFromCart = (id) => {
     return {
         type: actionTypes.DELETE_FROM_CART,
-
+        id: id,
     };
 };

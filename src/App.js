@@ -1,5 +1,7 @@
 import React from 'react';
 import { Route, Switch, withRouter, Redirect } from 'react-router-dom';
+import Products from './containers/Products/Products';
+import Product from './components/Product/Product';
 //import * as actions from './Store/Actions/index';
 //import { connect } from 'react-redux';
 
@@ -7,9 +9,9 @@ import { Route, Switch, withRouter, Redirect } from 'react-router-dom';
 const App = () => {
 
   return (
-    <div className="App">
+    <div>
       <Switch>
-        <Route path='/product/:id' render={(props) => (<Product {...props}/>)}  />
+        <Route path='/product/:id' component={Product} />
         <Route path='/products' exact component={Products} />
         <Redirect to='/products' />        
       </Switch>

@@ -1,17 +1,17 @@
 import * as actionTypes from './actionTypes';
 import axios from '../../axiosInstances/fetchProducts';
 
-export const fetchItemsFail = () => {
+export const fetchItemsFail = (error) => {
     return {
         type: actionTypes.FETCH_ITEMS_FAIL,
-
+        error: error
     };
 };
 
-export const fetchItemsSuccess = () => {
+export const fetchItemsSuccess = (data) => {
     return {
-        type: actionTypes.FETCH_ITEMS_FAIL,
-
+        type: actionTypes.FETCH_ITEMS_SUCCESS,
+        data: data
     };
 };
 
@@ -27,6 +27,7 @@ export const initItems = () => {
         dispatch(fetchItemsStart());
         axios.get('/products')
         .then(res => {
+            console.log(res.data)
             dispatch(fetchItemsSuccess(res.data));
         } )
         .catch(e => {

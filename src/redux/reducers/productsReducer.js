@@ -1,7 +1,7 @@
 import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
-    items: [],
+    items: null,
     error: false,
 }
 
@@ -30,6 +30,7 @@ const fetchItemsFail = (state, action) => {
 }
 
 const fetchItemsSuccess = (state, action) => {
+    console.log('reducer = ', action)
     return {
         ...state,
         items: action.data,

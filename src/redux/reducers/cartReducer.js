@@ -28,7 +28,6 @@ const addToCart = (state, action) => {
     if (newCart.some(e => e.id === action.id)) {
         let arrayID = newCart.findIndex(e => e.id === action.id)
         newCart[arrayID].quantity += 1;
-        console.log(newCart) //needs testing
     } else {
         newCart.push({id: action.id, quantity: 1})
     }
@@ -47,7 +46,6 @@ const deleteFromCart = (state, action) => {
     if (newCart[arrayID].quantity > 1) {
         let arrayID = newCart.findIndex(e => e.id === action.id)
         newCart[arrayID].quantity -= 1;
-        console.log(newCart) //needs testing
     } else {
         newCart.splice(arrayID,1)
     }
