@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Route, Switch, withRouter, Redirect } from 'react-router-dom';
+//import * as actions from './Store/Actions/index';
+//import { connect } from 'react-redux';
 
-function App() {
+
+const App = () => {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Switch>
+        <Route path='/product/:id' render={(props) => (<Product {...props}/>)}  />
+        <Route path='/products' exact component={Products} />
+        <Redirect to='/products' />        
+      </Switch>
     </div>
   );
 }
 
-export default App;
+export default withRouter(App);

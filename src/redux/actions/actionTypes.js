@@ -1,0 +1,7 @@
+export const FETCH_ITEMS_START = 'FETCH_ITEMS_START';
+export const FETCH_ITEMS_SUCCESS = 'FETCH_ITEMS_SUCCESS';
+export const FETCH_ITEMS_FAIL = 'FETCH_ITEMS_FAIL';
+
+export const TOGGLE_CART = 'TOGGLE_CART';
+export const ADD_TO_CART = 'ADD_TO_CART';
+export const DELETE_FROM_CART = 'DELETE_FROM_CART';
