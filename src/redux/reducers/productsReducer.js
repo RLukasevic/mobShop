@@ -30,7 +30,6 @@ const fetchItemsFail = (state, action) => {
 }
 
 const fetchItemsSuccess = (state, action) => {
-    console.log('reducer = ', action)
     return {
         ...state,
         items: action.data,

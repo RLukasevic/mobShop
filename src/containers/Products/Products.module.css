@@ -1,0 +1,120 @@
+.itemsWrap {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 14%;
+}
+
+.contentWrapper {
+    display: flex;
+    flex-direction: column;
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+.menuRow {
+    display: flex;
+    justify-content: space-around;
+}
+
+.foundsmall {
+    display: none;
+}
+
+.found {
+    display: flex;
+    justify-self: flex-start;
+    font-size: 14px;
+    padding: 6px 0px;
+}
+
+.filterElement {
+    position: relative;
+    display: inline-block;
+}
+
+.filterButton {
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 150px;
+    text-align: center;
+    margin-left: 5px;
+    padding: 5px 10px;
+    border: 1px solid #000;
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none; 
+    -khtml-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none; 
+}
+
+.filterButton:hover {
+    background-color: rgb(221, 221, 221);
+    border-color: rgb(0,0,0, 0.4);
+    cursor: pointer;
+}
+
+.filterArrow {
+    font-size: 20px;
+}
+
+.filterDropdown {
+    display: block;
+    position: absolute;
+    left: 63px;
+    top: 31px;
+}
+
+.filterDropdownButton {
+    background-color: #fff;
+    text-align: center;
+    margin-left: 5px;
+    padding: 5px 10px;
+    border: 1px solid #000;
+}
+
+.filterDropdownButton:hover {
+    cursor: pointer;
+    background-color: rgb(221, 221, 221);
+    border-color: rgb(0,0,0, 0.4);
+}
+
+@media (max-width: 460px) {
+
+    .found {
+        display: none;
+    }
+
+    .foundsmall {
+        display: block;
+        text-align: center;
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+}
+
+@media (min-width: 1050px) {
+    .itemsWrap {
+        padding-left: 0%;
+    }
+}
+
+@media (max-width: 810px) {
+    .itemsWrap {
+        padding-left: 5%;
+    }
+}
+
+@media (max-width: 740px) {
+    .itemsWrap {
+        padding-left: 0;
+        justify-content: center;
+    }
+
+    .contentWrapper {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}

@@ -1,0 +1,33 @@
+.addToCartButton {
+    padding: 10px 0px;
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    background-color: rgb(27,27,33);
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none; 
+    -khtml-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none; 
+}
+
+.addToCartButton:hover {
+    cursor: pointer;
+    background-color: rgb(27,27,33, 0.8);
+}
+
+.addToCartButtonDisabled {
+    padding: 10px 0px;
+    text-align: center;
+    font-size: 18px;
+    cursor: not-allowed; 
+    color: rgb(102, 102, 102);
+    background-color: rgb(192, 192, 192);
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none; 
+    -khtml-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none; 
+}

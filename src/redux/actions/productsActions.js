@@ -27,11 +27,9 @@ export const initItems = () => {
         dispatch(fetchItemsStart());
         axios.get('/products')
         .then(res => {
-            console.log(res.data)
             dispatch(fetchItemsSuccess(res.data));
         } )
         .catch(e => {
-            console.log(e)
             dispatch(fetchItemsFail(e));
         } )
     };

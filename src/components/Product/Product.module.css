@@ -1,0 +1,55 @@
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    padding: 0% 5%;
+}
+
+.image {
+    display: flex;
+    padding-right: 5%;
+    height: 100%;
+    width: 40%;
+}
+
+.rightSide {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.price {
+    margin: 15px 0px;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.addToCart {
+    align-self: flex-start;
+    width: 180px;
+}
+
+.separatorLine {
+    width: 90%;
+    align-self: center;
+    margin: 30px 0px;
+    border-top: 2px solid rgb(219, 219, 219);
+    border-radius: 5px;
+}
+
+.descTitle {
+    font-weight: 700;
+    font-size: 22px;
+}
+
+.descContent {
+    font-size: 14px;
+}
+
+.back {
+    align-self: flex-end;
+    width: 100px;
+}

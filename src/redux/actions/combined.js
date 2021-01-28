@@ -6,4 +6,6 @@ export {
     toggleCart, 
     addToCart, 
     deleteFromCart,
+    removeItemFromCart,
+    checkOutCartWhipe,
 } from './cartActions';

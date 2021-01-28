@@ -1,0 +1,40 @@
+.container {
+    display: flex;
+    flex: 1 0 25%;
+    flex-direction: column;
+    margin: 20px;
+    max-width: 200px;
+}
+
+.picNameWrap:hover {
+    cursor: pointer;
+    color: rgb(0,0,0, 0.6);
+}
+
+.image {
+    width: 200px;
+    height: 250px;
+    margin-bottom: 10px;
+}
+
+.name {
+    font-size: 24;
+    font-weight: 900;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.bigPrice {
+    font-size: 24px;
+    font-weight: 1000;
+}
+
+.price {
+    text-align: center;
+    font-weight: 600;
+    padding: 10px 0px;
+}   
+
+.btnholder {
+    height: 100%;
+}

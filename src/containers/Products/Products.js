@@ -2,6 +2,12 @@ import React, { useEffect, useState } from 'react';
 import * as authActions from '../../redux/actions/combined';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import styles from './Products.module.css';
+
+import Item from '../../components/Item/Item';
+import Cart from '../../components/Cart/Cart';
+import Spinner from '../../components/UI/Spinner/Spinner';
+import Error from '../../components/UI/Error/Error';
 
 
 const Products = props => {
@@ -13,7 +19,7 @@ const Products = props => {
         if(props.items === null) {
             props.initItems();
         }
-    },[]);
+    });
     
     const filterPressHandler = () => {
         if (showFilter) {
@@ -38,7 +44,7 @@ const Products = props => {
     }
 
     const formItems = () => {
-        let temp = props.items;
+        let temp = [...props.items];
         let tempArr = [];
 
         switch (filterSelected) {
@@ -56,14 +62,16 @@ const Products = props => {
         }
 
         temp.map(item => {
-            tempArr.push(<div>
-                        <span onClick={() => props.history.push('/product/' + item.id)}>Poggers!</span>
-                        <span>
-                            <button onClick={() => props.addToCart(item.id)}>PLUS</button>
-                            <span>{props.cart.findIndex(e => e.id === item.id) >= 0 ? props.cart[props.cart.findIndex(e => e.id === item.id)].quantity : 0}</span>
-                            <button onClick={() => props.deleteFromCart(item.id)}>MINUS</button>
-                        </span>
-                    </div>)
+            tempArr.push(
+            <Item 
+                key={item.id}
+                image={item.image}
+                itemId={item.id}
+                price={item.price}
+                name={item.title}
+                click={() => props.history.push('/product/' + item.id, {index: props.items.findIndex(e => e.id === item.id)})}
+            />)
+            return null;
         })
 
         return tempArr
@@ -71,14 +79,27 @@ const Products = props => {
 
   return (
     <div>
-        <div>{props.items ? props.items.length : 0} Product(s) found.</div>
-        <button onClick={() => filterPressHandler()}>{filterSelected}</button>
-        { showFilter ? <div>
-            <button onClick={() => filterOptionHandler('Ascending')}>Ascending</button>
-            <button onClick={() => filterOptionHandler('Descending')}>Descending</button>
-            {filterSelected !== 'Select' ? <button onClick={() => filterOptionHandler('Select')}>Reset Filter</button> : null}
-        </div> : null}
-        {props.items ? formItems() : <div>Loading...</div>}
+        <Cart />
+        {props.error ? <Error/> : <div className={styles.contentWrapper}>
+            <div className={styles.foundsmall}>{props.items ? props.items.length : 0} Product(s) found.</div>
+            <div className={styles.menuRow}>
+                <div className={styles.found}>{props.items ? props.items.length : 0} Product(s) found.</div>
+                <div className={styles.filterElement}>
+                    Order by 
+                    <span className={styles.filterButton} onClick={() => filterPressHandler()}>{filterSelected}<span className={styles.filterArrow}>{'  v'}</span></span> 
+                    { showFilter ? 
+                        <div className={styles.filterDropdown}>
+                            <div className={styles.filterDropdownButton} onClick={() => filterOptionHandler('Ascending')}>Ascending</div>
+                            <div className={styles.filterDropdownButton} onClick={() => filterOptionHandler('Descending')}>Descending</div>
+                            {filterSelected !== 'Select' ? <div className={styles.filterDropdownButton} onClick={() => filterOptionHandler('Select')}>Reset Filter</div> : null}
+                        </div> 
+                    : null}
+                </div>
+            </div>
+            <div className={styles.itemsWrap}>
+                {props.items ? formItems() : <Spinner/>}
+            </div>
+        </div>}
     </div>
   );
 }
@@ -87,6 +108,7 @@ const Products = props => {
 const mapStateToProps = state => {
     return {
         items: state.items.items,
+        error: state.items.error,
         cart: state.cart.cart,
     }
 }
@@ -95,8 +117,6 @@ const mapDispatchToProps = dispatch => {
     return {
         toggleCart: () => dispatch(authActions.toggleCart()),
         initItems: () => dispatch(authActions.initItems()),
-        addToCart: (id) => dispatch(authActions.addToCart(id)),
-        deleteFromCart: (id) => dispatch(authActions.deleteFromCart(id)),
     }
 }
 
